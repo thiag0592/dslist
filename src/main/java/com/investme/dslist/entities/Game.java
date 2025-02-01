@@ -10,7 +10,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table()
+@Table(name="tb_game")
 public class Game {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -23,7 +23,10 @@ public class Game {
 	private String	platforms;
 	private Double	score;
 	private String	imgUrl;
-	private String shortDescription;
+ 	
+	@Column(columnDefinition = "TEXT")
+	private String	shortDescription;
+	@Column(columnDefinition = "TEXT")
 	private String	longDescription;
 	
 	
