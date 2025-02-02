@@ -1,6 +1,7 @@
 package com.investme.dslist.dto;
 
 import com.investme.dslist.entities.Game;
+import com.investme.dslist.projections.GameMinProjection;
 
 public class GameMinDto {
 	private Long id;
@@ -18,6 +19,14 @@ public class GameMinDto {
 		this.year = entity.getYear();
 		this.imgUrl = entity.getImgUrl();
 		this.shortDescription = entity.getShortDescription();
+	}
+	
+	public GameMinDto(GameMinProjection entityProjection) {
+		this.id = entityProjection.getId();
+		this.title = entityProjection.getTitle();
+		this.year = entityProjection.getYear();
+		this.imgUrl = entityProjection.getImgUrl();
+		this.shortDescription = entityProjection.getShortDescription();
 	}
 
 	public Long getId() {
