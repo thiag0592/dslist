@@ -18,14 +18,14 @@ public class GameService {
 	private GameRepository gameRepository;
 	
 	@Transactional(readOnly = true)
-	public GameDto FindById(Long gameId) {
+	public GameDto findById(Long gameId) {
 		Game result = gameRepository.findById(gameId).get();
 		GameDto dto = new GameDto(result);
 		return dto;
 	}
 	
 	@Transactional(readOnly = true)
-	public List<GameMinDto> FindAll(){ 
+	public List<GameMinDto> findAll(){ 
 		List<Game> result = gameRepository.findAll();
 		List<GameMinDto> dto = result.stream().map(x -> new GameMinDto(x)).toList();
 		return dto;

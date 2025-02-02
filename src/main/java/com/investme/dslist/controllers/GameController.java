@@ -15,20 +15,20 @@ import com.investme.dslist.services.GameService;
 
 @RestController
 @RequestMapping(value = "/games")
-public class Controller {
+public class GameController {
 	
 	@Autowired
 	private GameService gameService;
 	
 	@GetMapping(value = "/{id}")
 	public GameDto findById(@PathVariable Long id) { 
-		GameDto result = gameService.FindById(id);
+		GameDto result = gameService.findById(id);
 		return result;
 	}
 	
 	@GetMapping
 	public List<GameMinDto> findAll(){
-		List<GameMinDto> result = gameService.FindAll();
+		List<GameMinDto> result = gameService.findAll();
 		return result;
 	}
 	
